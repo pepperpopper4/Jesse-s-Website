@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Overall page styling with a blue theme */
+    body {
+      background-color: #5190e4;
+      color: #424242;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      position: relative;
+    }
+    /* Minimalist top navigation */
+    .top-nav {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .top-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-right: 15px;
+      font-size: 16px;
+      padding: 5px 10px;
+      border: 1px solid transparent;
+      transition: border 0.2s ease;
+    }
+    .top-nav a:hover {
+      border-bottom: 1px solid #ffffff;
+    }
+    header {
+      text-align: center;
+      padding: 40px 0 20px 0;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #ffffff;
+    }
+    /* Styling for each year section */
+    .year-section {
+      margin: 40px 0;
+    }
+    .year-section h2 {
+      color: #000000;
+      padding-bottom: 5px;
+      margin-bottom: 0;
+    }
+    /* Responsive grid container for project boxes */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 250px);
+      gap: 20px 50px; /* 20px row gap, 50px column gap */
+      justify-content: start;
+    }
+    /* Fixed-size project boxes */
+    .project-box {
+      background-color: #fff;
+      border: 1px solid #B3E5FC;
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      height: 350px;
+      overflow: hidden;
+    }
+    .project-box:hover {
+      transform: scale(1.05);
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .project-box h3 {
+      margin: 0 0 10px;
+      color: #0277BD;
+      font-size: 1.2em;
+    }
+    /* Image container forces a square image area using padding trick */
+    .image-container {
+      width: 100%;
+      height: 0;
+      padding-top: 100%; /* 1:1 Aspect Ratio */
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+    .project-box p {
+      margin-top: 10px;
+      font-size: 0.9em;
+      line-height: 1.2;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+    /* Modal styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 800px;
+      position: relative;
+    }
+    .modal-image {
+      flex: 0 0 400px;
+      height: 400px;
+      overflow: hidden;
+    }
+    .modal-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+    .modal-text {
+      flex: 1;
+    }
+    .modal-text h2 {
+      margin-top: 0;
+      color: #424242;
+    }
+    .modal-text p {
+      color: #424242;
+      line-height: 1.5;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+    }
+    .modal-close:hover {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <a href="index.html" title="Home">Home</a>
+    <a href="about.html" title="About Me">About Me</a>
+  </nav>
+
+  <header>
+    <h1>PROJECTS</h1>
+  </header>
+
+  <!-- 2025 Section -->
+  <section class="year-section">
+    <h2>2025</h2>
+    <div class="projects-grid">
+      <div class="project-box" onclick="openModal('Light Cube', 'images/Light Cube Project Cover.jpg', 'I completed a soldering kit that involved wiring numerous LEDs in series and parallel. The final result is a cube that performs various animations, and it required approximately 12 hours of soldering, bending, and testing.')">
+        <h3>Light Cube</h3>
+        <div class="image-container">
+          <img src="images/Light Cube Project Cover.jpg" alt="Light Cube">
+        </div>
+        <p>Soldered cube that performs light shows.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Personal Website', 'images/Waterfall.jpg', 'I created my personal website using VS Code, Youtube, and ChatGPT.')">
+        <h3>Personal Website</h3>
+        <div class="image-container">
+          <img src="images/Waterfall.jpg" alt="Personal Website">
+        </div>
+        <p>My personal website.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Misc 2025', 'images/Misc 2025 Project Cover.jpg', 'This project is a basketball hoop hung in my apartment. It features a McNeese sticker that I created using a vinyl cutter.')">
+        <h3>Misc</h3>
+        <div class="image-container">
+          <img src="images/Misc 2025 Project Cover.jpg" alt="Misc 2025">
+        </div>
+        <p>Miscellaneous projects of 2025.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- 2024 Section -->
+<section class="year-section">
+    <h2>2024</h2>
+    <div class="projects-grid">
+      <div class="project-box" onclick="openModal('Door Bed', 'images/Door Bed Project Cover.jpeg', 'I repurposed approximately six old wooden doors and reassembled them into a bed frame. The only store-bought components were hangers and 2x4s for central support. I began this project in the summer of 2023 and finished it in 2024.')">
+        <h3>Door Bed</h3>
+        <div class="image-container">
+          <img src="images/Door Bed Project Cover.jpeg" alt="Door Bed">
+        </div>
+        <p>Bed frame made from old doors.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Radio', 'images/Radio Project Cover.jpg', 'This is an AM/FM radio that I completed as an honors project for my electronics class alongside <a href=&quot;https://www.blakeseigler.com&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>Blake Seigler</a>. It took approximately six hours of soldering to complete.')">
+        <h3>Radio</h3>
+        <div class="image-container">
+          <img src="images/Radio Project Cover.jpg" alt="Radio">
+        </div>
+        <p>AM/FM Radio.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Christopher\'s Casino', 'images/Christophers Casino Project Cover.jpg', 'I created a poker set for my roommate Christopher (aka Yablumpkin), who is passionate about poker. I used a laser cutter to produce the box from 1/4-inch plywood and fabricated the chips from 1/8-inch extruded acrylic. The 3D-printed dealer chip was designed by Raaid Khan.')">
+        <h3>Christopher's Casino</h3>
+        <div class="image-container">
+          <img src="images/Christophers Casino Project Cover.jpg" alt="Christopher's Casino">
+        </div>
+        <p>Custom poker set for my roommate.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Bags', 'images/Bags Project Cover.jpeg', 'I made these bags for Mother’s Day—one for my mother and one for each of my four grandmothers. They are crafted from reclaimed leather scraps and recycled fabric using a Sailrite sewing machine.')">
+        <h3>Bags</h3>
+        <div class="image-container">
+          <img src="images/Bags Project Cover.jpeg" alt="Bags">
+        </div>
+        <p>Bags made from reclaimed leather.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Misc 2024', 'images/Misc 2024 Project Cover.jpeg', 'This project is a sign for <a href=&quot;https://www.justinpepperhouse.com/&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>my uncle\'s non-profit</a> in memory of my cousin, created using a ShopBot desktop CNC.')">
+        <h3>Misc</h3>
+        <div class="image-container">
+          <img src="images/Misc 2024 Project Cover.jpeg" alt="Misc 2024">
+        </div>
+        <p>Miscellaneous projects of 2024.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- 2023 Section -->
+  <section class="year-section">
+    <h2>2023</h2>
+    <div class="projects-grid">
+      <div class="project-box" onclick="openModal('Picture Frames', 'images/Picture Frames Project Cover.jpg', 'These picture frames were made as Christmas presents for my family. They are crafted from reclaimed maple wood sourced from Lake George, NY. My brother and cousins assisted in their completion, and the glass was custom-cut at Home Depot.')">
+        <h3>Picture Frames</h3>
+        <div class="image-container">
+          <img src="images/Picture Frames Project Cover.jpg" alt="Picture Frames">
+        </div>
+        <p>Custom picture frames for family members.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Laf Quill Co', 'images/Laf Quill Co Project Cover.jpeg', 'Alongside <a href=&quot;https://www.remyworks.com&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>Remy Oktay</a> and Owen Baute, I helped build the woodshop at Lafayette College. We made pens from reclaimed wood found on campus and sold them to the alumni relations office. The workshop included a drill press, band saw, and desktop lathe.')">
+        <h3>Laf Quill Co</h3>
+        <div class="image-container">
+          <img src="images/Laf Quill Co Project Cover.jpeg" alt="Laf Quill Co">
+        </div>
+        <p>Woodworking business at Lafayette College.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Hoodies for Huntington\'s', 'images/Hoodies for Huntingtons Project Cover.jpg', 'Alongside my cousin, Jamie Kielb, I ran a registered non-profit to raise money for Huntington\'s disease. Together, we created ads, managed social media, and oversaw product sales.')">
+        <h3>Hoodies for Huntington's</h3>
+        <div class="image-container">
+          <img src="images/Hoodies for Huntingtons Project Cover.jpg" alt="Hoodies for Huntington's">
+        </div>
+        <p>Clothing line for Huntington's disease fundraising.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Misc 2023', 'images/Misc 2023 Project Cover.jpg', 'This project is a pen I made while working with Laf Quill Co, constructed from skateboard components.')">
+        <h3>Misc</h3>
+        <div class="image-container">
+          <img src="images/Misc 2023 Project Cover.jpg" alt="Misc 2023">
+        </div>
+        <p>Miscellaneous projects of 2023.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2022 Section -->
+  <section class="year-section">
+    <h2>2022</h2>
+    <div class="projects-grid">
+      <div class="project-box" onclick="openModal('Teddy\'s Fort', 'images/Teddy\'s Fort Project Cover.jpg', 'This is a fort I built for my younger brother. I set 4x4s in cement for the foundation, built a platform on top, framed it with reclaimed 2x4s from my father, and then attached the walls and roof. I finished it by shingling, painting, and completing the interior.')">
+        <h3>Teddy's Fort</h3>
+        <div class="image-container">
+          <img src="images/Teddy's Fort Project Cover.jpg" alt="Teddy's Fort">
+        </div>
+        <p>A miniature house built for my younger brother.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Mom\'s Desk', 'images/Mom\'s Desk Project Cover.jpg', 'This desk was made as a Mother\'s Day gift. In 2022, I jointed cherry boards and cut a heart shape with a jigsaw, then used 3/4-inch plywood to create the cabinets underneath and filled the heart with green resin. In 2023, I revisited the project, attaching doors to the cabinets and decorating the desk with a wood burner.')">
+        <h3>Mom's Desk</h3>
+        <div class="image-container">
+          <img src="images/Mom's Desk Project Cover.jpg" alt="Mom's Desk">
+        </div>
+        <p>A desk made for my mother.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Cool Desk', 'images/Cool Desk Project Cover.jpeg', 'I built a desk from 3/4-inch birch plywood with my father’s help. I created a recessed square to insert a rainbow tile found at my high school and used a Dremel to carve “The Merry Going” into the side as a reference to the show One Piece.')">
+        <h3>Cool Desk</h3>
+        <div class="image-container">
+          <img src="images/Cool Desk Project Cover.jpeg" alt="Cool Desk">
+        </div>
+        <p>Birch plywood desk.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Crest', 'images/Crest Project Cover.jpg', 'This is a replacement crest for my high school after the original went missing. With the help of Serge Hunkins, we created a new crest using MDF and a CNC machine. Painters including myself, Elijah Welch, Alexander Krauss, and Maya Tjia contributed, and Samuel Zichelli helped mount the crest.')">
+        <h3>Crest</h3>
+        <div class="image-container">
+          <img src="images/Crest Project Cover.jpg" alt="Crest">
+        </div>
+        <p>Replacement crest for Montclair High School.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Misc 2022', 'images/Misc 2022 Project Cover.jpg', 'This project is a Father\'s Day gift I made using offcuts from 2x4s while building my brother\'s fort.')">
+        <h3>Misc</h3>
+        <div class="image-container">
+          <img src="images/Misc 2022 Project Cover.jpg" alt="Misc 2022">
+        </div>
+        <p>Miscellaneous projects of 2022.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2017 Section -->
+  <section class="year-section">
+    <h2>2017</h2>
+    <div class="projects-grid">
+      <div class="project-box" onclick="openModal('Kilroy Repairs', 'images/Kilroy Repairs Project Cover.jpg', 'Throughout middle school and high school, I repaired broken phones for friends and family. I also purchased broken phones online, refurbished them, and resold them for a profit. Occasionally, I customized these devices or streamed my repair processes online.')">
+        <h3>Kilroy Repairs</h3>
+        <div class="image-container">
+          <img src="images/Kilroy Repairs Project Cover.jpg" alt="Kilroy Repairs">
+        </div>
+        <p>Smartphone repair and refurbishing business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2013 Section -->
+  <section class="year-section">
+    <h2>2013</h2>
+    <div class="projects-grid">
+      <div class="project-box" onclick="openModal('Pocket Buddys', 'images/Pocket Buddys Project Cover.jpg', 'Throughout elementary school, I hand-sewed stuffed animals called Pocket Buddys. I would have friends sit with me outside my house to sell them to passersby, donating 10% of the profits to the Multiple Sclerosis Society. Fun fact: They became so popular that they were eventually banned in my school.')">
+        <h3>Pocket Buddys</h3>
+        <div class="image-container">
+          <img src="images/Pocket Buddys Project Cover.jpg" alt="Pocket Buddys">
+        </div>
+        <p>Stuffed animal company for Multiple Sclerosis fundraising.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal container -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div class="modal-image">
+        <img id="modal-image" src="" alt="">
+      </div>
+      <div class="modal-text">
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, imageSrc, description) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-image').src = imageSrc;
+      document.getElementById('modal-description').innerHTML = description;
+      document.getElementById('modal').style.display = 'block';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+    // Close modal when clicking outside the content area
+    window.onclick = function(event) {
+      var modal = document.getElementById('modal');
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

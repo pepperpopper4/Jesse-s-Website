@@ -1,0 +1,149 @@
+/* Overall page styling with a blue theme */
+body {
+    background-color: #5190e4;
+    color: #424242;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+  }
+  
+  /* Minimalist top navigation */
+  .top-nav {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: border 0.2s ease;
+  }
+  .top-nav a:hover {
+    border-bottom: 1px solid #ffffff;
+  }
+  
+  /* Header styling */
+  header {
+    text-align: center;
+    padding: 40px 0 20px 0;
+  }
+  header h1 {
+    font-size: 3em;
+    margin: 0;
+    color: #ffffff;
+  }
+  
+  /* Styling for each year section */
+  .year-section {
+    margin: 40px 0;
+  }
+  .year-section h2 {
+    color: #000000;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+  }
+  
+  /* Responsive grid container for project boxes */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 20px 50px; /* 20px row gap, 50px column gap */
+    justify-content: start;
+  }
+  
+  /* Fixed-size project boxes */
+  .project-box {
+    background-color: #fff;
+    border: 1px solid #B3E5FC;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 350px;
+    overflow: hidden;
+  }
+  .project-box:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  .project-box h3 {
+    margin: 0 0 10px;
+    color: #0277BD;
+    font-size: 1.2em;
+  }
+  
+  /* Image container forces a square image area using padding trick */
+  .image-container {
+    width: 100%;
+    height: 0;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+  
+  /* Project description styling */
+  .project-box p {
+    margin-top: 10px;
+    font-size: 0.9em;
+    line-height: 1.2;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  
+  /* Modal styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+  }
+  .modal-content img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+  }
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+  }
+  .modal-close:hover {
+    color: #000;
+  }
+  
