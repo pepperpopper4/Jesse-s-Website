@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Important, probably</title>
+  <style>
+    /* Overall page styling with a blue theme */
+    body {
+      background-color: #5190e4;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      position: relative;
+    }
+    /* Minimalist top navigation (left) */
+    nav.top-nav {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    /* Minimalist top navigation (right) */
+    nav.top-nav-right {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    nav.top-nav a,
+    nav.top-nav-right a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-right: 15px;
+      font-size: 16px;
+      padding: 5px 10px;
+      transition: border-bottom 0.2s ease;
+    }
+    nav.top-nav a:hover,
+    nav.top-nav-right a:hover {
+      border-bottom: 1px solid #ffffff;
+    }
+    /* Header styling */
+    header {
+      text-align: center;
+      padding: 40px 0 20px 0;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    /* Content styling */
+    .content {
+      max-width: 800px;
+      margin: 80px auto 0 auto; /* leave some space for nav */
+    }
+    /* Flex container for about me image and text */
+    .about-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .about-container .image-wrapper {
+      flex: 0 0 auto;
+    }
+    /* Smaller profile image */
+    img.profile {
+      border-radius: 5px;
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+    }
+    .about-container .text-wrapper {
+      flex: 1;
+      text-align: left;
+    }
+    /* Education table styling */
+    table {
+      background-color: #ffffff;
+      color: #000000;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    table th, table td {
+      border: 1px solid #000;
+      padding: 10px;
+    }
+    table th {
+      background-color: #0277BD;
+      color: #ffffff;
+    }
+    /* Modal styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modal-content {
+      background-color: #fff;
+      color: #000;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 500px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+    }
+    .modal-close:hover {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+    <nav class="top-nav" aria-label="Primary">
+        <a href="/index.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/projects.html">Projects</a>
+    </nav>
+
+    <main class="wrap" role="main">
+        <header class="page-head">
+            <h1>Important, probably</h1>
+            <p style="margin-left:auto;color:var(--muted);">Photos and Adventures</p>
+        </header>
+
+        <!-- Adventure entry template - copy this block to add more -->
+        <section class="adventure-entry">
+            <div class="entry-meta">
+                <time datetime="2025-11-02">Nov 2, 2025</time>
+            </div>
+
+            <div class="entry-body">
+                <figure class="image-wrap" aria-hidden="false">
+                    <!-- Replace src with your image path -->
+                    <img src="images/adventure-1.jpg" alt="Trail through trees at golden hour" />
+                </figure>
+
+                <div class="entry-text">
+                    <h2>Evening Hike to the Ridge</h2>
+                    <p>
+                        Short note about the hike, weather, and small discoveries. Use this area to keep
+                        quick thoughts, links, or to-do reminders about follow-ups. Add images to the left
+                        and keep each entry compact and searchable.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example second entry -->
+        <section class="adventure-entry">
+            <div class="entry-meta">
+                <time datetime="2025-10-14">Oct 14, 2025</time>
+            </div>
+
+            <div class="entry-body">
+                <figure class="image-wrap">
+                    <img src="images/adventure-2.jpg" alt="Map and coffee on a table" />
+                </figure>
+
+                <div class="entry-text">
+                    <h2>Maps & Mistakes</h2>
+                    <p>
+                        A day of wrong turns that turned into a great detour. Keep entries short and date-focused
+                        so you can scan history quickly. Add captions in the &lt;figcaption&gt; if you want.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add more entries below -->
+    </main>
+</body>
+</html>
