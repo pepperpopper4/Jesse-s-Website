@@ -157,6 +157,21 @@
       display: block;
       opacity: 1;
     }
+    .modal-slideshow video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.3s ease;
+    }
+    .modal-slideshow video.active {
+      display: block;
+      opacity: 1;
+    }
     /* Navigation arrows */
     .slide-nav {
       position: absolute;
@@ -255,77 +270,84 @@
       <div class="project-box" onclick="openModal('Hadley Telescope', 'Images/Light Cube Project Cover.png', 'Printed and assembled the Hadley Telescope from Open Source plans. Custom wooden stand designed and built to house the telescope.')">
         <h3>Hadley Telescope</h3>
         <div class="image-container">
-          <img src="Images/Light Cube Project Cover.png" alt="Hadley Telescope">
+          <img src="Images/2025/Hadley Telescope/Hadley Telescope Project Cover.png" alt="Hadley Telescope">
         </div>
         <p>Open source telescope and custom stand.</p>
       </div>
       <div class="project-box" onclick="openModal('Attempted E-Bike', 'Images/Attempted E-Bike Project Cover.png', 'Restored e-bike battery and adapted motor to fit my old bike. Unfortunately, someone decided they liked it and stole it while I was away for Spring break.')">
         <h3>Attempted E-Bike</h3>
         <div class="image-container">
-          <img src="Images/Attempted E-Bike Project Cover.png" alt="Attempted E-Bike">
+          <img src="Images/2025/Attempted E-Bike/Attempted E-Bike Project Cover.png" alt="Attempted E-Bike">
         </div>
         <p>Mid-conversion bicycle that got stolen.</p>
       </div>
       <div class="project-box" onclick="openModal('Garbage PC', 'Images/Garbage PC Project Cover.png', 'I restored a gaming PC that I salvaged from a dump. The project involved cleaning, repairing, and upgrading various components to bring the system back to life.')">
         <h3>Garbage PC</h3>
         <div class="image-container">
-          <img src="Images/Garbage PC Project Cover.png" alt="Garbage PC">
+          <img src="Images/2025/Garbage PC/Garbage PC Project Cover.png" alt="Garbage PC">
         </div>
         <p>Restored gaming pc salvaged from dump.</p>
       </div>
       <div class="project-box" onclick="openModal('BMO', 'Images/BMO Project Cover.png', 'An interface designed to gamify chores for my youngest brother. Using supabase for the backend, I created a platform where he can earn points and rewards for completing tasks. The project involved front-end design, database management, and user experience optimization.')">
         <h3>BMO</h3>
         <div class="image-container">
-          <img src="Images/BMO Project Cover.png" alt="BMO">
+          <img src="Images/2025/BMO/BMO Project Cover.png" alt="BMO">
         </div>
         <p>Platform to gamify chores for my youngest brother.</p>
       </div>
       <div class="project-box" onclick="openModal('Robot Dog', 'Images/Robot Dog Project Cover.png', 'Alongside <a href=&quot;https://www.blakeseigler.com&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>Blake Seigler</a>, I designed and began building a quadrupedic robot. The project remains a W.I.P. and is currently being redesigned to operate on a belt-driven system with UNCs robotics club.')">
         <h3>Robot Dog</h3>
         <div class="image-container">
-          <img src="Images/Robot Dog Project Cover.png" alt="Robot Dog">
+          <img src="Images/2025/Robot Dog/Robot Dog Project Cover.png" alt="Robot Dog">
         </div>
         <p>V1 of Quadrupedic Robot.</p>
       </div>
       <div class="project-box" onclick="openModal('BasketBot', 'Images/BasketBot Project Cover.png', 'Alongside <a href=&quot;https://www.blakeseigler.com&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>Blake Seigler</a>, I designed and built a basketball chucking robot that automatically hurtles the ball at a target using a flywheel mechanism. The project involved 3D modeling, laser cutting, and programming an Arduino to control the motors and sensors.')">
         <h3>BasketBot</h3>
         <div class="image-container">
-          <img src="Images/BasketBot Project Cover.png" alt="BasketBot">
+          <img src="Images/2025/BasketBot/BasketBot Project Cover.png" alt="BasketBot">
         </div>
         <p>Basketball chucking robot.</p>
       </div>
       <div class="project-box" onclick="openModal('Deadbolt Unlocker 9000', 'Images/Deadbolt Unlocker 9000 Project Cover.png', 'I designed a mechanical device that can unlock a deadbolt using a stepper motor controlled by an NodeMCU. The project involved 3D modeling the components, laser cutting the gears, and programming the NodeMCU to operate the stepper based on user input (Blynk, IOT App).')">
         <h3>Deadbolt Opener 9000</h3>
         <div class="image-container">
-          <img src="Images/Deadbolt Unlocker 9000 Project Cover.png" alt="Deadbolt Unlocker 9000">
+          <img src="Images/2025/Deadbolt Unlocker 9000/Deadbolt Unlocker 9000 Project Cover.png" alt="Deadbolt Unlocker 9000">
         </div>
         <p>Deadbolt opener made from 3D-printed and laser-cut components.</p>
       </div>
-      <div class="project-box" onclick="openModal('Skateboard New Jersey', 'Images/Skateboard New Jersey Project Cover.png', 'I created this silhouette of New Jersey using skateboard pieces. The project involved cutting and arranging various skateboard parts to then flatten them using a drum sander. Finally, I used the CNC machine to cut out the shape of New Jersey.')">
+      <div class="project-box" onclick="openModal('Skateboard New Jersey', ['Images/2025/Skateboard New Jersey/Skateboard New Jersey 1.jpg', 'Images/2025/Skateboard New Jersey/Skateboard New Jersey 2.jpg', 'Images/2025/Skateboard New Jersey/Skateboard New Jersey 3.PNG'], ['I created this silhouette of New Jersey using skateboard pieces. The project involved cutting and arranging various skateboard parts to then flatten them using a drum sander. Finally, I used the CNC machine to cut out the shape of New Jersey.', 'I created this silhouette of New Jersey using skateboard pieces. The project involved cutting and arranging various skateboard parts to then flatten them using a drum sander. Finally, I used the CNC machine to cut out the shape of New Jersey.', 'Description for Skateboard New Jersey slide 3.'])">
         <h3>Skateboard New Jersey</h3>
         <div class="image-container">
-          <img src="Images/Skateboard New Jersey Project Cover.png" alt="Skateboard New Jersey">
+          <img src="Images/2025/Skateboard New Jersey/Skateboard New Jersey Project Cover.jpg" alt="Skateboard New Jersey">
         </div>
         <p>Silhouette of New Jersey cut from skateboard pieces.</p>
       </div>
-      <div class="project-box" onclick="openModal('Chess Board', 'Images/Chess Board Project Cover.png', 'I built this chess board using a ShopBot desktop CNC machine. The board is made from walnut and maple wood, with the squares inlaid using a precise cutting and fitting process. The inlays around the edge are made of skateboard pieces. I did not make the chess pieces.')">
+      <div class="project-box" onclick="openModal('Chess Board', ['Images/2025/Chess Board/Chess Board 1.jpg', 'Images/2025/Chess Board/Chess Board 2.jpg', 'Images/2025/Chess Board/Chess Board 3.jpg', 'Images/2025/Chess Board/Chess Board 4.jpg'], 'I built this chess board using a ShopBot desktop CNC machine. The board is made from walnut and maple wood, with the squares inlaid using a precise cutting and fitting process. The inlays around the edge are made of skateboard pieces. I did not make the chess pieces.')">
         <h3>Chess Board</h3>
         <div class="image-container">
-          <img src="Images/Chess Board Project Cover.png" alt="Chess Board">
+          <img src="Images/2025/Chess Board/Chess Board Project Cover.jpg" alt="Chess Board">
         </div>
         <p>Walnut chess board with maple inlays.</p>
       </div>
       <div class="project-box" onclick="openModal('Light Cube', 'Images/Light Cube Project Cover.jpg', 'I completed a soldering kit that involved wiring numerous LEDs in series and parallel. The final result is a cube that performs various animations, and it required approximately 12 hours of soldering, bending, and testing.')">
         <h3>Light Cube</h3>
         <div class="image-container">
-          <img src="Images/Light Cube Project Cover.jpg" alt="Light Cube">
+          <img src="Images/2025/Light Cube/Light Cube Project Cover.jpg" alt="Light Cube">
         </div>
         <p>Soldered cube that performs light shows.</p>
       </div>
-      <div class="project-box" onclick="openModal('Misc 2025', ['Images/Misc 2025/1.jpg', 'Images/Misc 2025/2.jpg', 'Images/Misc 2025/3.jpg'], ['This project is a basketball hoop that I hung in my apartment. It features a McNeese sticker that I created using a vinyl cutter.', 'Description for second project in Misc 2025.', 'Description for third project in Misc 2025.'])">
+      <div class="project-box" onclick="openModal('Master Organizer', ['Images/2025/Master Organizer/Master Organizer 1.jpg', 'Images/2025/Master Organizer/Master Organizer 2.jpg', 'Images/2025/Master Organizer/Master Organizer 3.jpg', 'Images/2025/Master Organizer/Master Organizer 4.jpg'], 'Description for Master Organizer project.')">
+        <h3>Master Organizer</h3>
+        <div class="image-container">
+          <img src="Images/2025/Master Organizer/Master Organizer Project Cover.jpg" alt="Master Organizer">
+        </div>
+        <p>Master Organizer project.</p>
+      </div>
+      <div class="project-box" onclick="openModal('Misc 2025', ['Images/2025/Misc 2025/Misc 2025 1.jpg', 'Images/2025/Misc 2025/Misc 2025 2.JPG', 'Images/2025/Misc 2025/Misc 2025 3.JPG', 'Images/2025/Misc 2025/Misc 2025 4.jpg', 'Images/2025/Misc 2025/Misc 2025 5.jpg', 'Images/2025/Misc 2025/Misc 2025 6.jpg', 'Images/2025/Misc 2025/Misc 2025 7.jpg', 'Images/2025/Misc 2025/Misc 2025 8.jpg', 'Images/2025/Misc 2025/Misc 2025 9.jpg', 'Images/2025/Misc 2025/Misc 2025 10.jpg', 'Images/2025/Misc 2025/Misc 2025 11.jpg', 'Images/2025/Misc 2025/Misc 2025 12.JPG'], ['Description for Misc 2025 project 1.', 'Description for Misc 2025 project 2.', 'Description for Misc 2025 project 3.', 'Description for Misc 2025 project 4.', 'Description for Misc 2025 project 5.', 'Description for Misc 2025 project 6.', 'Description for Misc 2025 project 7.', 'Description for Misc 2025 project 8.', 'Description for Misc 2025 project 9.', 'Description for Misc 2025 project 10.', 'Description for Misc 2025 project 11.', 'Description for Misc 2025 project 12.'])">
         <h3>Misc</h3>
         <div class="image-container">
-          <img src="Images/Misc 2025 Project Cover.jpg" alt="Misc 2025">
+          <img src="Images/2025/Misc 2025/Misc 2025 Project Cover.JPG" alt="Misc 2025">
         </div>
         <p>Miscellaneous projects of 2025.</p>
       </div>
@@ -339,35 +361,35 @@
       <div class="project-box" onclick="openModal('Door Bed', 'Images/Door Bed Project Cover.jpeg', 'I repurposed approximately six old wooden doors and reassembled them into a bed frame. The only store-bought components were hangers and 2x4s for central support. I began this project in the summer of 2023 and finished it in 2024.')">
         <h3>Door Bed</h3>
         <div class="image-container">
-          <img src="Images/Door Bed Project Cover.jpeg" alt="Door Bed">
+          <img src="Images/2024/Door Bed/Door Bed Project Cover.jpeg" alt="Door Bed">
         </div>
         <p>Bed frame made from old doors.</p>
       </div>
       <div class="project-box" onclick="openModal('Radio', 'Images/Radio Project Cover.jpg', 'This is an AM/FM radio that I completed as an honors project for my electronics class alongside <a href=&quot;https://www.blakeseigler.com&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>Blake Seigler</a>. It took approximately six hours of soldering to complete.')">
         <h3>Radio</h3>
         <div class="image-container">
-          <img src="Images/Radio Project Cover.jpg" alt="Radio">
+          <img src="Images/2024/Radio/Radio Project Cover.jpg" alt="Radio">
         </div>
         <p>AM/FM Radio.</p>
       </div>
-      <div class="project-box" onclick="openModal('Christopher\'s Casino', 'Images/Christophers Casino Project Cover.jpg', 'I created a poker set for my roommate Christopher (aka Yablumpkin), who is passionate about poker. I used a laser cutter to create the box from 1/4-inch plywood and fabricated the chips from 1/8-inch extruded acrylic. The 3D-printed dealer chip was designed by Raaid Khan.')">
-        <h3>Christopher's Casino</h3>
+      <div class="project-box" onclick="openModal('Joyce\'s Home Sign', ['Images/2024/Joyce\'s Home Sign/Joyce\'s Home Sign 1.jpg', 'Images/2024/Joyce\'s Home Sign/Joyce\'s Home Sign 2.jpg', 'Images/2024/Joyce\'s Home Sign/Joyce\'s Home Sign 3.jpeg', 'Images/2024/Joyce\'s Home Sign/Joyce\'s Home Sign 4 - Copy.JPG'], 'Description for Joyce\'s Home Sign project.')">
+        <h3>Joyce's Home Sign</h3>
         <div class="image-container">
-          <img src="Images/Christophers Casino Project Cover.jpg" alt="Christopher's Casino">
+          <img src="Images/2024/Joyce's Home Sign/Joyce's Home Sign Project Cover.JPG" alt="Joyce's Home Sign">
         </div>
-        <p>Custom poker set for my roommate.</p>
+        <p>Joyce's Home Sign project.</p>
       </div>
       <div class="project-box" onclick="openModal('Bags', 'Images/Bags Project Cover.jpeg', 'I made these bags for Mother’s Day—one for my mother and one for each of my four grandmothers. They are crafted from reclaimed leather scraps and recycled fabric using a Sailrite sewing machine.')">
         <h3>Bags</h3>
         <div class="image-container">
-          <img src="Images/Bags Project Cover.jpeg" alt="Bags">
+          <img src="Images/2024/Bags/Bags Project Cover.jpeg" alt="Bags">
         </div>
         <p>Bags made from reclaimed leather.</p>
       </div>
       <div class="project-box" onclick="openModal('Misc 2024', 'Images/Misc 2024 Project Cover.jpeg', 'This project is a sign for <a href=&quot;https://www.justinpepperhouse.com/&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>my uncle\'s non-profit</a> in memory of my cousin, created using a ShopBot desktop CNC.')">
         <h3>Misc</h3>
         <div class="image-container">
-          <img src="Images/Misc 2024 Project Cover.jpeg" alt="Misc 2024">
+          <img src="Images/2024/Misc 2024/Misc 2024 Project Cover.jpeg" alt="Misc 2024">
         </div>
         <p>Miscellaneous projects of 2024.</p>
       </div>
@@ -379,24 +401,24 @@
   <section class="year-section">
     <h2>2023</h2>
     <div class="projects-grid">
-      <div class="project-box" onclick="openModal('Picture Frames', 'Images/Picture Frames Project Cover.jpg', 'These picture frames were made as Christmas presents for my family. They are crafted from reclaimed maple wood sourced from Lake George, NY. My brother and cousins helped complete them, and the glass was custom-cut at Home Depot.')">
+      <div class="project-box" onclick="openModal('Picture Frames', ['Images/2023/Picture Frames/Picture Frames 1.jpg', 'Images/2023/Picture Frames/Picture Frames 2.mov', 'Images/2023/Picture Frames/Picture Frames 3.jpg', 'Images/2023/Picture Frames/Picture Frames 4.jpg', 'Images/2023/Picture Frames/Picture Frames 5.jpg', 'Images/2023/Picture Frames/Picture Frames 6.jpg'], 'These picture frames were made as Christmas presents for my family. They are crafted from reclaimed maple wood sourced from Lake George, NY. My brother and cousins helped complete them, and the glass was custom-cut at Home Depot.')">
         <h3>Picture Frames</h3>
         <div class="image-container">
-          <img src="Images/Picture Frames Project Cover.jpg" alt="Picture Frames">
+          <img src="Images/2023/Picture Frames/Picture Frames Project Cover.jpg" alt="Picture Frames">
         </div>
         <p>Custom picture frames for family members.</p>
       </div>
-      <div class="project-box" onclick="openModal('Laf Quill Co', 'Images/Laf Quill Co Project Cover.jpeg', 'Alongside <a href=&quot;https://www.remyworks.com&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>Remy Oktay</a> and Owen Baute, I helped build the woodshop at Lafayette College. We made pens from reclaimed wood found on campus and sold them to the alumni relations office. The workshop included a drill press, band saw, and desktop lathe.')">
+      <div class="project-box" onclick="openModal('Laf Quill Co', ['Images/2023/Laf Quill Co/Laf Quill Co 1.jpg', 'Images/2023/Laf Quill Co/Laf Quill Co 2.jpg', 'Images/2023/Laf Quill Co/Laf Quill Co 3.jpg', 'Images/2023/Laf Quill Co/Laf Quill Co 4.jpg', 'Images/2023/Laf Quill Co/Laf Quill Co 5.jpg', 'Images/2023/Laf Quill Co/Laf Quill Co 6.jpg'], 'Alongside <a href=&quot;https://www.remyworks.com&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>Remy Oktay</a> and Owen Baute, I helped build the woodshop at Lafayette College. We made pens from reclaimed wood found on campus and sold them to the alumni relations office. The workshop included a drill press, band saw, and desktop lathe.')">
         <h3>Laf Quill Co</h3>
         <div class="image-container">
-          <img src="Images/Laf Quill Co Project Cover.jpeg" alt="Laf Quill Co">
+          <img src="Images/2023/Laf Quill Co/Laf Quill Co Project Cover.jpeg" alt="Laf Quill Co">
         </div>
         <p>Woodworking business at Lafayette College.</p>
       </div>
       <div class="project-box" onclick="openModal('Hoodies for Huntington\'s', 'Images/Hoodies for Huntingtons Project Cover.jpg', 'Alongside my cousin, Jamie Kielb, I ran a registered non-profit to raise money for Huntington\'s disease. Together, we created advertisements, managed social media, and oversaw product sales.')">
         <h3>Hoodies for Huntington's</h3>
         <div class="image-container">
-          <img src="Images/Hoodies for Huntingtons Project Cover.jpg" alt="Hoodies for Huntington's">
+          <img src="Images/2023/Hoodies for Huntington's/Hoodies for Huntington's Project Cover.jpg" alt="Hoodies for Huntington's">
         </div>
         <p>Clothing line for Huntington's disease fundraising.</p>
       </div>
@@ -404,7 +426,7 @@
       <div class="project-box" onclick="openModal('Misc 2023', 'Images/Misc 2023 Project Cover.jpg', 'This project is a pen I made while working with Laf Quill Co, constructed from skateboard components.')">
         <h3>Misc</h3>
         <div class="image-container">
-          <img src="Images/Misc 2023 Project Cover.jpg" alt="Misc 2023">
+          <img src="Images/2023/Misc 2023/Misc 2023 Project Cover.jpg" alt="Misc 2023">
         </div>
         <p>Miscellaneous projects of 2023.</p>
       </div>
@@ -415,17 +437,17 @@
   <section class="year-section">
     <h2>2022</h2>
     <div class="projects-grid">
-      <div class="project-box" onclick="openModal('Teddy\'s Fort', ['Images/Teddy\'s Fort/Teddy\'s Fort 1.jpg', 'Images/Teddy\'s Fort/Teddy\'s Fort 2.jpg', 'Images/Teddy\'s Fort/Teddy\'s Fort 3.jpg','Images/Teddy\'s Fort/Teddy\'s Fort 4.jpg','Images/Teddy\'s Fort/Teddy\'s Fort 5.jpg','Images/Teddy\'s Fort/Teddy\'s Fort 6.jpg','Images/Teddy\'s Fort/Teddy\'s Fort 7.jpg','Images/Teddy\'s Fort/Teddy\'s Fort 8.jpg','Images/Teddy\'s Fort/Teddy\'s Fort 9.jpg'], ['This is a fort I built for my younger brother. I set 4x4s in cement for the foundation, built a platform on top, framed it with reclaimed 2x4s from my father, and then attached the walls and roof. I finished it by shingling, painting, and completing the interior.'])">
+      <div class="project-box" onclick="openModal('Teddy\'s Fort', ['Images/2022/Teddy\'s Fort/Teddy\'s Fort 1.jpg', 'Images/2022/Teddy\'s Fort/Teddy\'s Fort 2.jpg', 'Images/2022/Teddy\'s Fort/Teddy\'s Fort 3.jpg','Images/2022/Teddy\'s Fort/Teddy\'s Fort 4.jpg','Images/2022/Teddy\'s Fort/Teddy\'s Fort 5.jpg','Images/2022/Teddy\'s Fort/Teddy\'s Fort 6.jpg','Images/2022/Teddy\'s Fort/Teddy\'s Fort 7.jpg','Images/2022/Teddy\'s Fort/Teddy\'s Fort 8.jpg','Images/2022/Teddy\'s Fort/Teddy\'s Fort 9.jpg'], ['This is a fort I built for my younger brother. I set 4x4s in cement for the foundation, built a platform on top, framed it with reclaimed 2x4s from my father, and then attached the walls and roof. I finished it by shingling, painting, and completing the interior.'])">
         <h3>Teddy's Fort</h3>
         <div class="image-container">
-          <img src="Images/Teddy's Fort/Teddy's Fort Project Cover.jpg" alt="Teddy's Fort">
+          <img src="Images/2022/Teddy's Fort/Teddy's Fort Project Cover.jpg" alt="Teddy's Fort">
         </div>
         <p>A miniature house built for my younger brother.</p>
       </div>
-      <div class="project-box" onclick="openModal('Mom\'s Desk', 'Images/Mom\'s Desk Project Cover.jpg', 'This desk was made as a Mother\'s Day gift. In 2022, I joined cherry boards and cut a heart shape with a jigsaw, then used 3/4-inch plywood to create the cabinets underneath and filled the heart with green resin. In 2023, I revisited the project by attaching doors to the cabinets and decorating the desk with a wood burner.')">
+      <div class="project-box" onclick="openModal('Mom\'s Desk', ['Images/2022/Mom\'s Desk/Mom\'s Desk 1.jpg', 'Images/2022/Mom\'s Desk/Mom\'s Desk 2.jpg', 'Images/2022/Mom\'s Desk/Mom\'s Desk 3.jpg', 'Images/2022/Mom\'s Desk/Mom\'s Desk 4.jpg', 'Images/2022/Mom\'s Desk/Mom\'s Desk 5.jpg', 'Images/2022/Mom\'s Desk/Mom\'s Desk 6.jpg', 'Images/2022/Mom\'s Desk/Mom\'s Desk 7.jpg'], 'This desk was made as a Mother\'s Day gift. In 2022, I joined cherry boards and cut a heart shape with a jigsaw, then used 3/4-inch plywood to create the cabinets underneath and filled the heart with green resin. In 2023, I revisited the project by attaching doors to the cabinets and decorating the desk with a wood burner.')">
         <h3>Mom's Desk</h3>
         <div class="image-container">
-          <img src="Images/Mom's Desk Project Cover.jpg" alt="Mom's Desk">
+          <img src="Images/2022/Mom's Desk/Mom's Desk Project Cover.jpg" alt="Mom's Desk">
         </div>
         <p>A desk made for my mother.</p>
       </div>
@@ -433,21 +455,21 @@
       <div class="project-box" onclick="openModal('Cool Desk', 'Images/Cool Desk Project Cover.jpeg', 'I built a desk from 3/4-inch birch plywood with my father’s help. I created a recessed square to insert a rainbow tile found at my high school and used a Dremel to carve “The Merry Going” into the side as a reference to the show One Piece.')">
         <h3>Cool Desk</h3>
         <div class="image-container">
-          <img src="Images/Cool Desk Project Cover.jpeg" alt="Cool Desk">
+          <img src="Images/2022/Cool Desk/Cool Desk Project Cover.jpeg" alt="Cool Desk">
         </div>
         <p>Birch plywood desk.</p>
       </div>
-      <div class="project-box" onclick="openModal('Crest', 'Images/Crest Project Cover.jpg', 'This is a replacement crest for my high school after the original went missing. With the help of Serge Hunkins, we created a new crest using MDF and a CNC machine. Painters including myself, Elijah Welch, Alexander Krauss, and Maya Tjia contributed, and Samuel Zichelli assisted with mounting it.')">
+      <div class="project-box" onclick="openModal('Crest', ['Images/2022/Crest/Crest 1.jpg', 'Images/2022/Crest/Crest 2.jpg', 'Images/2022/Crest/Crest 3.jpg', 'Images/2022/Crest/Crest 4.jpg', 'Images/2022/Crest/Crest 5.jpg', 'Images/2022/Crest/Crest 6.jpg', 'Images/2022/Crest/Crest 7.jpg', 'Images/2022/Crest/Crest 8.jpg', 'Images/2022/Crest/Crest 9.jpg'], 'This is a replacement crest for my high school after the original went missing. With the help of Serge Hunkins, we created a new crest using MDF and a CNC machine. Painters including myself, Elijah Welch, Alexander Krauss, and Maya Tjia contributed, and Samuel Zichelli assisted with mounting it.')">
         <h3>Crest</h3>
         <div class="image-container">
-          <img src="Images/Crest Project Cover.jpg" alt="Crest">
+          <img src="Images/2022/Crest/Crest Project Cover.jpg" alt="Crest">
         </div>
         <p>Replacement crest for Montclair High School.</p>
       </div>
-      <div class="project-box" onclick="openModal('Misc 2022', 'Images/Misc 2022 Project Cover.jpg', 'This project is a Father\'s Day gift I made using offcuts from 2x4s while building my brother\'s fort.')">
+      <div class="project-box" onclick="openModal('Misc 2022', ['Images/2022/Misc 2022/Misc 2022 1.JPG', 'Images/2022/Misc 2022/Misc 2022 2.JPG', 'Images/2022/Misc 2022/Misc 2022 3.jpg'], 'This project is a Father\'s Day gift I made using offcuts from 2x4s while building my brother\'s fort.')">
         <h3>Misc</h3>
         <div class="image-container">
-          <img src="Images/Misc 2022 Project Cover.jpg" alt="Misc 2022">
+          <img src="Images/2022/Misc 2022/Misc 2022 Project Cover.jpg" alt="Misc 2022">
         </div>
         <p>Miscellaneous projects of 2022.</p>
       </div>
@@ -458,10 +480,10 @@
   <section class="year-section">
     <h2>2017</h2>
     <div class="projects-grid">
-      <div class="project-box" onclick="openModal('Kilroy Repairs', 'Images/Kilroy Repairs Project Cover.jpg', 'Throughout middle school and high school, I repaired broken phones for friends and family. I also purchased broken phones online, refurbished them, and resold them for a profit. Occasionally, I customized these devices or streamed my repair processes online.')">
+      <div class="project-box" onclick="openModal('Kilroy Repairs', ['Images/2017/Kilroy Repairs/Kilroy Repairs 1.MP4', 'Images/2017/Kilroy Repairs/Kilroy Repairs 2.jpg', 'Images/2017/Kilroy Repairs/Kilroy Repairs 3.JPG', 'Images/2017/Kilroy Repairs/Kilroy Repairs 4.jpg', 'Images/2017/Kilroy Repairs/Kilroy Repairs 5.JPG', 'Images/2017/Kilroy Repairs/Kilroy Repairs 6.jpg'], 'Throughout middle school and high school, I repaired broken phones for friends and family. I also purchased broken phones online, refurbished them, and resold them for a profit. Occasionally, I customized these devices or streamed my repair processes online.')">
         <h3>Kilroy Repairs</h3>
         <div class="image-container">
-          <img src="Images/Kilroy Repairs Project Cover.jpg" alt="Kilroy Repairs">
+          <img src="Images/2017/Kilroy Repairs/Kilroy Repairs Project Cover.jpg" alt="Kilroy Repairs">
         </div>
         <p>Smartphone repair and refurbishing business.</p>
       </div>
@@ -475,7 +497,7 @@
       <div class="project-box" onclick="openModal('Pocket Buddys', 'Images/Pocket Buddys Project Cover.jpg', 'Throughout elementary school, I hand-sewed stuffed animals called Pocket Buddys. I would have friends sit with me outside my house to sell them to passersby, donating 10% of the profits to the Multiple Sclerosis Society. Fun fact: They became so popular that they were eventually banned in my school.')">
         <h3>Pocket Buddys</h3>
         <div class="image-container">
-          <img src="Images/Pocket Buddys Project Cover.jpg" alt="Pocket Buddys">
+          <img src="Images/2013/Pocket Buddys/Pocket Buddys Project Cover.jpg" alt="Pocket Buddys">
         </div>
         <p>Stuffed animal company for Multiple Sclerosis fundraising.</p>
       </div>
@@ -537,14 +559,30 @@
       // Build slideshow
       const slideshow = document.getElementById('modal-slideshow');
       slideshow.innerHTML = '';
-      images.forEach((imageSrc, index) => {
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.alt = `${title} - Image ${index + 1}`;
-        if (index === 0) {
-          img.classList.add('active');
+      images.forEach((mediaSrc, index) => {
+        // Detect if it's a video by file extension
+        const isVideo = /\.(mp4|webm|ogg|mov|MP4|WEBM|OGG|MOV)$/i.test(mediaSrc);
+        
+        if (isVideo) {
+          const video = document.createElement('video');
+          video.src = mediaSrc;
+          video.controls = true;
+          video.loop = false;
+          video.muted = false;
+          video.setAttribute('playsinline', '');
+          if (index === 0) {
+            video.classList.add('active');
+          }
+          slideshow.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = mediaSrc;
+          img.alt = `${title} - Image ${index + 1}`;
+          if (index === 0) {
+            img.classList.add('active');
+          }
+          slideshow.appendChild(img);
         }
-        slideshow.appendChild(img);
       });
       
       // Build indicators
@@ -584,14 +622,26 @@
 
     function goToSlide(index) {
       currentSlide = index;
-      const images = document.querySelectorAll('#modal-slideshow img');
+      const mediaElements = document.querySelectorAll('#modal-slideshow img, #modal-slideshow video');
       const indicators = document.querySelectorAll('.slide-indicator');
       
-      images.forEach((img, i) => {
+      mediaElements.forEach((element, i) => {
         if (i === index) {
-          img.classList.add('active');
+          element.classList.add('active');
+          // If it's a video, play it
+          if (element.tagName === 'VIDEO') {
+            element.play().catch(e => {
+              // Handle autoplay restrictions
+              console.log('Video autoplay prevented:', e);
+            });
+          }
         } else {
-          img.classList.remove('active');
+          element.classList.remove('active');
+          // If it's a video, pause it
+          if (element.tagName === 'VIDEO') {
+            element.pause();
+            element.currentTime = 0; // Reset to beginning
+          }
         }
       });
       
@@ -617,6 +667,13 @@
     }
 
     function closeModal() {
+      // Pause any playing videos
+      const videos = document.querySelectorAll('#modal-slideshow video');
+      videos.forEach(video => {
+        video.pause();
+        video.currentTime = 0;
+      });
+      
       document.getElementById('modal').style.display = 'none';
       currentSlide = 0;
       slides = [];

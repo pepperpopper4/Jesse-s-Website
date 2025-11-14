@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Important, probably</title>
+  <title>Adventures - Jesse's Website</title>
   <style>
     /* Overall page styling with a blue theme */
     body {
@@ -20,14 +20,7 @@
       top: 10px;
       left: 10px;
     }
-    /* Minimalist top navigation (right) */
-    nav.top-nav-right {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-    nav.top-nav a,
-    nav.top-nav-right a {
+    nav.top-nav a {
       color: #ffffff;
       text-decoration: none;
       margin-right: 15px;
@@ -35,8 +28,7 @@
       padding: 5px 10px;
       transition: border-bottom 0.2s ease;
     }
-    nav.top-nav a:hover,
-    nav.top-nav-right a:hover {
+    nav.top-nav a:hover {
       border-bottom: 1px solid #ffffff;
     }
     /* Header styling */
@@ -50,139 +42,317 @@
     }
     /* Content styling */
     .content {
-      max-width: 800px;
-      margin: 80px auto 0 auto; /* leave some space for nav */
+      max-width: 1200px;
+      margin: 80px auto 0 auto;
     }
-    /* Flex container for about me image and text */
-    .about-container {
+    /* Blog entry styling */
+    .blog-entry {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 30px;
+      margin: 40px 0;
       display: flex;
+      gap: 30px;
       align-items: flex-start;
-      gap: 20px;
-      flex-wrap: wrap;
     }
-    .about-container .image-wrapper {
-      flex: 0 0 auto;
+    /* Slideshow container on the left */
+    .slideshow-container {
+      flex: 0 0 500px;
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 8px;
     }
-    /* Smaller profile image */
-    img.profile {
-      border-radius: 5px;
-      max-width: 200px;
-      width: 100%;
-      height: auto;
-    }
-    .about-container .text-wrapper {
-      flex: 1;
-      text-align: left;
-    }
-    /* Education table styling */
-    table {
-      background-color: #ffffff;
-      color: #000000;
-      margin: 20px auto;
-      border-collapse: collapse;
-    }
-    table th, table td {
-      border: 1px solid #000;
-      padding: 10px;
-    }
-    table th {
-      background-color: #0277BD;
-      color: #ffffff;
-    }
-    /* Modal styling */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
+    .slideshow {
+      position: relative;
       width: 100%;
       height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
     }
-    .modal-content {
-      background-color: #fff;
-      color: #000;
-      margin: 10% auto;
-      padding: 20px;
-      border-radius: 5px;
-      width: 80%;
-      max-width: 500px;
-      position: relative;
-    }
-    .modal-close {
+    .slideshow img {
       position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      color: #aaa;
-      cursor: pointer;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
-    .modal-close:hover {
-      color: #000;
+    .slideshow img.active {
+      opacity: 1;
+    }
+    /* Navigation arrows */
+    .slide-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+      z-index: 10;
+    }
+    .slide-nav:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .slide-nav.prev {
+      left: 10px;
+    }
+    .slide-nav.next {
+      right: 10px;
+    }
+    /* Slide indicators */
+    .slide-indicators {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .slide-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 2px solid white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .slide-indicator.active {
+      background-color: white;
+    }
+    /* Hide navigation when only one image */
+    .slideshow-container.single-slide .slide-nav,
+    .slideshow-container.single-slide .slide-indicators {
+      display: none;
+    }
+    /* Description container on the right */
+    .description-container {
+      flex: 1;
+      color: #ffffff;
+    }
+    .description-container h2 {
+      margin-top: 0;
+      font-size: 2em;
+    }
+    .description-container p {
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .blog-entry {
+        flex-direction: column;
+      }
+      .slideshow-container {
+        flex: 1;
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-    <nav class="top-nav" aria-label="Primary">
-        <a href="/index.html">Home</a>
-        <a href="/about.html">About</a>
-        <a href="/projects.html">Projects</a>
-    </nav>
+  <!-- Navigation -->
+  <nav class="top-nav">
+    <a href="index.html" title="Home">Home</a>
+    <a href="about.html" title="About Me">About Me</a>
+    <a href="projects.html" title="Projects">Projects</a>
+  </nav>
 
-    <main class="wrap" role="main">
-        <header class="page-head">
-            <h1>Important, probably</h1>
-            <p style="margin-left:auto;color:var(--muted);">Photos and Adventures</p>
-        </header>
+  <header>
+    <h1>IMPORTANT, probably</h1>
+  </header>
 
-        <!-- Adventure entry template - copy this block to add more -->
-        <section class="adventure-entry">
-            <div class="entry-meta">
-                <time datetime="2025-11-02">Nov 2, 2025</time>
-            </div>
+  <div class="content">
+    <!-- Germany Entry -->
+    <div class="blog-entry">
+      <div class="slideshow-container single-slide" id="germany-slideshow">
+        <div class="slideshow" id="germany-slides">
+          <img src="Images/blog/2025/Germany/Germany 1.jpg" alt="Germany" class="active">
+        </div>
+        <button class="slide-nav prev" onclick="changeSlide('germany', -1)">‹</button>
+        <button class="slide-nav next" onclick="changeSlide('germany', 1)">›</button>
+        <div class="slide-indicators" id="germany-indicators"></div>
+      </div>
+      <div class="description-container">
+        <h2>Germany</h2>
+        <p id="germany-description">Description for Germany adventure.</p>
+      </div>
+    </div>
 
-            <div class="entry-body">
-                <figure class="image-wrap" aria-hidden="false">
-                    <!-- Replace src with your image path -->
-                    <img src="images/adventure-1.jpg" alt="Trail through trees at golden hour" />
-                </figure>
+    <!-- Gulf of Mexico Entry -->
+    <div class="blog-entry">
+      <div class="slideshow-container" id="gulf-slideshow">
+        <div class="slideshow" id="gulf-slides">
+          <img src="Images/blog/2025/Gulf of Mexico/Gulf of Mexico 1.jpg" alt="Gulf of Mexico" class="active">
+          <img src="Images/blog/2025/Gulf of Mexico/Gulf of Mexico 2.jpg" alt="Gulf of Mexico">
+        </div>
+        <button class="slide-nav prev" onclick="changeSlide('gulf', -1)">‹</button>
+        <button class="slide-nav next" onclick="changeSlide('gulf', 1)">›</button>
+        <div class="slide-indicators" id="gulf-indicators">
+          <div class="slide-indicator active" onclick="goToSlide('gulf', 0)"></div>
+          <div class="slide-indicator" onclick="goToSlide('gulf', 1)"></div>
+        </div>
+      </div>
+      <div class="description-container">
+        <h2>Gulf of Mexico</h2>
+        <p id="gulf-description">Description for Gulf of Mexico adventure.</p>
+      </div>
+    </div>
 
-                <div class="entry-text">
-                    <h2>Evening Hike to the Ridge</h2>
-                    <p>
-                        Short note about the hike, weather, and small discoveries. Use this area to keep
-                        quick thoughts, links, or to-do reminders about follow-ups. Add images to the left
-                        and keep each entry compact and searchable.
-                    </p>
-                </div>
-            </div>
-        </section>
+    <!-- Hawaii Entry -->
+    <div class="blog-entry">
+      <div class="slideshow-container" id="hawaii-slideshow">
+        <div class="slideshow" id="hawaii-slides">
+          <img src="Images/blog/2025/Hawaii/Hawaii 1.jpg" alt="Hawaii" class="active">
+          <img src="Images/blog/2025/Hawaii/Hawaii 2.jpg" alt="Hawaii">
+          <img src="Images/blog/2025/Hawaii/Hawaii 3.jpg" alt="Hawaii">
+        </div>
+        <button class="slide-nav prev" onclick="changeSlide('hawaii', -1)">‹</button>
+        <button class="slide-nav next" onclick="changeSlide('hawaii', 1)">›</button>
+        <div class="slide-indicators" id="hawaii-indicators">
+          <div class="slide-indicator active" onclick="goToSlide('hawaii', 0)"></div>
+          <div class="slide-indicator" onclick="goToSlide('hawaii', 1)"></div>
+          <div class="slide-indicator" onclick="goToSlide('hawaii', 2)"></div>
+        </div>
+      </div>
+      <div class="description-container">
+        <h2>Hawaii</h2>
+        <p id="hawaii-description">Description for Hawaii adventure.</p>
+      </div>
+    </div>
+  </div>
 
-        <!-- Example second entry -->
-        <section class="adventure-entry">
-            <div class="entry-meta">
-                <time datetime="2025-10-14">Oct 14, 2025</time>
-            </div>
+  <script>
+    // Slideshow state for each entry
+    const slideshows = {
+      germany: { current: 0, total: 1, interval: null },
+      gulf: { current: 0, total: 2, interval: null },
+      hawaii: { current: 0, total: 3, interval: null }
+    };
 
-            <div class="entry-body">
-                <figure class="image-wrap">
-                    <img src="images/adventure-2.jpg" alt="Map and coffee on a table" />
-                </figure>
+    // Auto-rotation interval (in milliseconds)
+    const AUTO_ROTATE_INTERVAL = 3000; // 3 seconds
 
-                <div class="entry-text">
-                    <h2>Maps & Mistakes</h2>
-                    <p>
-                        A day of wrong turns that turned into a great detour. Keep entries short and date-focused
-                        so you can scan history quickly. Add captions in the &lt;figcaption&gt; if you want.
-                    </p>
-                </div>
-            </div>
-        </section>
+    // Initialize slideshows
+    function initSlideshow(name) {
+      const slideshow = slideshows[name];
+      
+      // Start auto-rotation if more than one slide
+      if (slideshow.total > 1) {
+        startAutoRotate(name);
+      }
+    }
 
-        <!-- Add more entries below -->
-    </main>
+    // Start auto-rotation
+    function startAutoRotate(name) {
+      const slideshow = slideshows[name];
+      
+      // Clear any existing interval
+      if (slideshow.interval) {
+        clearInterval(slideshow.interval);
+      }
+      
+      // Set new interval
+      slideshow.interval = setInterval(() => {
+        changeSlide(name, 1);
+      }, AUTO_ROTATE_INTERVAL);
+    }
+
+    // Stop auto-rotation (when user manually navigates)
+    function stopAutoRotate(name) {
+      const slideshow = slideshows[name];
+      if (slideshow.interval) {
+        clearInterval(slideshow.interval);
+        slideshow.interval = null;
+      }
+    }
+
+    // Change slide
+    function changeSlide(name, direction) {
+      const slideshow = slideshows[name];
+      
+      // Stop auto-rotation temporarily when user manually navigates
+      if (slideshow.total > 1) {
+        stopAutoRotate(name);
+        // Restart auto-rotation after a delay
+        setTimeout(() => {
+          startAutoRotate(name);
+        }, 5000); // Wait 5 seconds before resuming auto-rotate
+      }
+      
+      slideshow.current += direction;
+      if (slideshow.current < 0) {
+        slideshow.current = slideshow.total - 1;
+      } else if (slideshow.current >= slideshow.total) {
+        slideshow.current = 0;
+      }
+      
+      goToSlide(name, slideshow.current);
+    }
+
+    // Go to specific slide
+    function goToSlide(name, index) {
+      const slideshow = slideshows[name];
+      slideshow.current = index;
+      
+      // Update images
+      const slides = document.querySelectorAll(`#${name}-slides img`);
+      slides.forEach((img, i) => {
+        if (i === index) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+      
+      // Update indicators
+      const indicators = document.querySelectorAll(`#${name}-indicators .slide-indicator`);
+      indicators.forEach((indicator, i) => {
+        if (i === index) {
+          indicator.classList.add('active');
+        } else {
+          indicator.classList.remove('active');
+        }
+      });
+      
+      // Stop and restart auto-rotation
+      if (slideshow.total > 1) {
+        stopAutoRotate(name);
+        setTimeout(() => {
+          startAutoRotate(name);
+        }, 5000);
+      }
+    }
+
+    // Initialize all slideshows when page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      initSlideshow('germany');
+      initSlideshow('gulf');
+      initSlideshow('hawaii');
+    });
+
+    // Pause auto-rotation on hover
+    document.querySelectorAll('.slideshow-container').forEach(container => {
+      container.addEventListener('mouseenter', (e) => {
+        const name = e.currentTarget.id.replace('-slideshow', '');
+        stopAutoRotate(name);
+      });
+      
+      container.addEventListener('mouseleave', (e) => {
+        const name = e.currentTarget.id.replace('-slideshow', '');
+        const slideshow = slideshows[name];
+        if (slideshow.total > 1) {
+          startAutoRotate(name);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
