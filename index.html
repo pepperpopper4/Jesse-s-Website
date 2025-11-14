@@ -51,6 +51,15 @@
       max-width: 600px;
       margin: 20px auto;
     }
+    /* Typing animation cursor */
+    #typed-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
     /* Profile image styling: center and scale */
     .profile {
       display: block;
@@ -70,7 +79,44 @@
   <!-- Main Content -->
   <h1>HOME</h1>
   <hr>
-  <p>Acta, Non Verba</p>
+  <p id="typed-text"></p>
   <img class="profile" src="Images/Waterfall.jpg" alt="This is a painting from my grandmother." title="This is a painting from my grandmother.">
+
+  <script>
+    const text = "Acta, Non Verba";
+    const element = document.getElementById('typed-text');
+    let isDeleting = false;
+    let charIndex = 0;
+    let typingSpeed = 100; // milliseconds per character when typing
+    let deletingSpeed = 50; // milliseconds per character when deleting
+    let pauseTime = 2000; // pause at the end of typing before deleting
+
+    function typeText() {
+      if (!isDeleting && charIndex < text.length) {
+        // Typing
+        element.textContent = text.substring(0, charIndex + 1);
+        charIndex++;
+        setTimeout(typeText, typingSpeed);
+      } else if (!isDeleting && charIndex === text.length) {
+        // Pause at the end of typing
+        setTimeout(() => {
+          isDeleting = true;
+          typeText();
+        }, pauseTime);
+      } else if (isDeleting && charIndex > 0) {
+        // Deleting
+        charIndex--;
+        element.textContent = text.substring(0, charIndex);
+        setTimeout(typeText, deletingSpeed);
+      } else {
+        // Finished deleting, start typing again
+        isDeleting = false;
+        setTimeout(typeText, 500); // Short pause before retyping
+      }
+    }
+
+    // Start the animation when the page loads
+    window.addEventListener('DOMContentLoaded', typeText);
+  </script>
 </body>
 </html>
