@@ -182,7 +182,8 @@
       </div>
       <div class="description-container">
         <h2>Germany</h2>
-        <p id="germany-description">Description for Germany adventure.</p>
+        <h3>Aug 2025</h3>
+        <p id="germany-description">2 days in Munich and 2 days in Berlin with my brother and my mom.</p>
       </div>
     </div>
 
@@ -202,7 +203,8 @@
       </div>
       <div class="description-container">
         <h2>Gulf of Mexico</h2>
-        <p id="gulf-description">Description for Gulf of Mexico adventure.</p>
+        <h3>July 2025</h3>
+        <p id="gulf-description">2 week research cruise in the Gulf of Mexico.</p>
       </div>
     </div>
 
@@ -224,7 +226,42 @@
       </div>
       <div class="description-container">
         <h2>Hawaii</h2>
-        <p id="hawaii-description">Description for Hawaii adventure.</p>
+        <h3>March 2025</h3>
+        <p id="hawaii-description">Crashed at my cousin's place in Hawaii.</p>
+      </div>
+    </div>
+
+    <!-- Lake George Entry -->
+    <div class="blog-entry">
+      <div class="slideshow-container single-slide" id="lakegeorge-slideshow">
+        <div class="slideshow" id="lakegeorge-slides">
+          <img src="Images/blog/2025/Lake George/Lake George 1.jpg" alt="Lake George" class="active">
+        </div>
+        <button class="slide-nav prev" onclick="changeSlide('lakegeorge', -1)">‹</button>
+        <button class="slide-nav next" onclick="changeSlide('lakegeorge', 1)">›</button>
+        <div class="slide-indicators" id="lakegeorge-indicators"></div>
+      </div>
+      <div class="description-container">
+        <h2>Lake George</h2>
+        <h3>2025</h3>
+        <p id="lakegeorge-description">Description for Lake George adventure.</p>
+      </div>
+    </div>
+
+    <!-- San Francisco Entry (2024) -->
+    <div class="blog-entry">
+      <div class="slideshow-container single-slide" id="sanfrancisco-slideshow">
+        <div class="slideshow" id="sanfrancisco-slides">
+          <img src="Images/blog/2024/San Francisco/San Francisco 1.JPG" alt="San Francisco" class="active">
+        </div>
+        <button class="slide-nav prev" onclick="changeSlide('sanfrancisco', -1)">‹</button>
+        <button class="slide-nav next" onclick="changeSlide('sanfrancisco', 1)">›</button>
+        <div class="slide-indicators" id="sanfrancisco-indicators"></div>
+      </div>
+      <div class="description-container">
+        <h2>San Francisco</h2>
+        <h3>2024</h3>
+        <p id="sanfrancisco-description">Description for San Francisco adventure.</p>
       </div>
     </div>
   </div>
@@ -234,7 +271,9 @@
     const slideshows = {
       germany: { current: 0, total: 1, interval: null },
       gulf: { current: 0, total: 2, interval: null },
-      hawaii: { current: 0, total: 3, interval: null }
+      hawaii: { current: 0, total: 3, interval: null },
+      lakegeorge: { current: 0, total: 1, interval: null },
+      sanfrancisco: { current: 0, total: 1, interval: null }
     };
 
     // Auto-rotation interval (in milliseconds)
@@ -336,6 +375,8 @@
       initSlideshow('germany');
       initSlideshow('gulf');
       initSlideshow('hawaii');
+      initSlideshow('lakegeorge');
+      initSlideshow('sanfrancisco');
     });
 
     // Pause auto-rotation on hover
