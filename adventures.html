@@ -170,11 +170,28 @@
   </header>
 
   <div class="content">
+    <!-- Houston Entry -->
+    <div class="blog-entry">
+      <div class="slideshow-container single-slide" id="houston-slideshow">
+        <div class="slideshow" id="houston-slides">
+          <img src="Images/Blog/2025/Houston/Houston 1.jpg" alt="Houston" class="active">
+        </div>
+        <button class="slide-nav prev" onclick="changeSlide('houston', -1)">‹</button>
+        <button class="slide-nav next" onclick="changeSlide('houston', 1)">›</button>
+        <div class="slide-indicators" id="houston-indicators"></div>
+      </div>
+      <div class="description-container">
+        <h2>Houston</h2>
+        <h3>2025</h3>
+        <p id="houston-description">Description for Houston adventure.</p>
+      </div>
+    </div>
+
     <!-- Germany Entry -->
     <div class="blog-entry">
       <div class="slideshow-container single-slide" id="germany-slideshow">
         <div class="slideshow" id="germany-slides">
-          <img src="Images/blog/2025/Germany/Germany 1.jpg" alt="Germany" class="active">
+          <img src="Images/Blog/2025/Germany/Germany 1.jpg" alt="Germany" class="active">
         </div>
         <button class="slide-nav prev" onclick="changeSlide('germany', -1)">‹</button>
         <button class="slide-nav next" onclick="changeSlide('germany', 1)">›</button>
@@ -191,8 +208,8 @@
     <div class="blog-entry">
       <div class="slideshow-container" id="gulf-slideshow">
         <div class="slideshow" id="gulf-slides">
-          <img src="Images/blog/2025/Gulf of Mexico/Gulf of Mexico 1.jpg" alt="Gulf of Mexico" class="active">
-          <img src="Images/blog/2025/Gulf of Mexico/Gulf of Mexico 2.jpg" alt="Gulf of Mexico">
+          <img src="Images/Blog/2025/Gulf of Mexico/Gulf of Mexico 1.jpg" alt="Gulf of Mexico" class="active">
+          <img src="Images/Blog/2025/Gulf of Mexico/Gulf of Mexico 2.jpg" alt="Gulf of Mexico">
         </div>
         <button class="slide-nav prev" onclick="changeSlide('gulf', -1)">‹</button>
         <button class="slide-nav next" onclick="changeSlide('gulf', 1)">›</button>
@@ -212,9 +229,9 @@
     <div class="blog-entry">
       <div class="slideshow-container" id="hawaii-slideshow">
         <div class="slideshow" id="hawaii-slides">
-          <img src="Images/blog/2025/Hawaii/Hawaii 1.jpg" alt="Hawaii" class="active">
-          <img src="Images/blog/2025/Hawaii/Hawaii 2.jpg" alt="Hawaii">
-          <img src="Images/blog/2025/Hawaii/Hawaii 3.jpg" alt="Hawaii">
+          <img src="Images/Blog/2025/Hawaii/Hawaii 1.jpg" alt="Hawaii" class="active">
+          <img src="Images/Blog/2025/Hawaii/Hawaii 2.jpg" alt="Hawaii">
+          <img src="Images/Blog/2025/Hawaii/Hawaii 3.jpg" alt="Hawaii">
         </div>
         <button class="slide-nav prev" onclick="changeSlide('hawaii', -1)">‹</button>
         <button class="slide-nav next" onclick="changeSlide('hawaii', 1)">›</button>
@@ -235,7 +252,7 @@
     <div class="blog-entry">
       <div class="slideshow-container single-slide" id="lakegeorge-slideshow">
         <div class="slideshow" id="lakegeorge-slides">
-          <img src="Images/blog/2025/Lake George/Lake George 1.jpg" alt="Lake George" class="active">
+          <img src="Images/Blog/2025/Lake George/Lake George 1.jpg" alt="Lake George" class="active">
         </div>
         <button class="slide-nav prev" onclick="changeSlide('lakegeorge', -1)">‹</button>
         <button class="slide-nav next" onclick="changeSlide('lakegeorge', 1)">›</button>
@@ -252,7 +269,7 @@
     <div class="blog-entry">
       <div class="slideshow-container single-slide" id="sanfrancisco-slideshow">
         <div class="slideshow" id="sanfrancisco-slides">
-          <img src="Images/blog/2024/San Francisco/San Francisco 1.JPG" alt="San Francisco" class="active">
+          <img src="Images/Blog/2024/San Francisco/San Francisco 1.JPG" alt="San Francisco" class="active">
         </div>
         <button class="slide-nav prev" onclick="changeSlide('sanfrancisco', -1)">‹</button>
         <button class="slide-nav next" onclick="changeSlide('sanfrancisco', 1)">›</button>
@@ -269,6 +286,7 @@
   <script>
     // Slideshow state for each entry
     const slideshows = {
+      houston: { current: 0, total: 1, interval: null },
       germany: { current: 0, total: 1, interval: null },
       gulf: { current: 0, total: 2, interval: null },
       hawaii: { current: 0, total: 3, interval: null },
@@ -372,6 +390,7 @@
 
     // Initialize all slideshows when page loads
     window.addEventListener('DOMContentLoaded', () => {
+      initSlideshow('houston');
       initSlideshow('germany');
       initSlideshow('gulf');
       initSlideshow('hawaii');
