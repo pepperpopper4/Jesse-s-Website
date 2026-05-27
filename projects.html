@@ -99,6 +99,10 @@
       object-fit: cover;
       border-radius: 3px;
     }
+    .image-container img.logo-fit {
+      object-fit: contain;
+      background-color: #ffffff;
+    }
     .project-box p {
       margin-top: 10px;
       font-size: 0.9em;
@@ -156,6 +160,10 @@
     .modal-slideshow img.active {
       display: block;
       opacity: 1;
+    }
+    .modal-image.logo-modal-fit .modal-slideshow img {
+      object-fit: contain;
+      background-color: #ffffff;
     }
     .modal-slideshow video {
       width: 100%;
@@ -267,12 +275,12 @@
   <section class="year-section">
     <h2>Currently Working On</h2>
     <div class="projects-grid">
-      <div class="project-box" onclick="openModal('TerraCore Robotics', ['Images/Current/TerraCore Robotics/TerraCore Robotics Project Cover copy.jpg', 'Images/Current/TerraCore Robotics/TerraCore Robotics 1.jpg'], 'TerraCore was accepted into Founders Inc.\'s Canopy program running from April 15th to May 22nd. More can be seen at <a href=&quot;https://www.terracorerobotics.com&quot; target=&quot;_blank&quot; style=&quot;color:#0277BD; text-decoration:underline;&quot;>www.terracorerobotics.com</a>. Along with some of my close friends I am currently working on robots to maintain vegetation and clean up debris. Future plans include terraforming robots, cyclical use of materials, etc.')">
-        <h3>TerraCore Robotics</h3>
+      <div class="project-box" onclick="openModal('SHOPR', ['Images/Current/SHOPR/SHOPRLOGO.jpg'], 'SHOPR is a robotic fleet that aims to automate grocery stores.')">
+        <h3>SHOPR</h3>
         <div class="image-container">
-          <img src="Images/Current/TerraCore Robotics/TerraCore Robotics Project Cover copy.jpg" alt="TerraCore Robotics">
+          <img src="Images/Current/SHOPR/SHOPRLOGO.jpg" alt="SHOPR" class="logo-fit">
         </div>
-        <p>Building robots to restore the planet.</p>
+        <p>A robotic fleet that aims to automate grocery stores.</p>
       </div>
     </div>
   </section>
@@ -673,6 +681,12 @@
         modalImageContainer.classList.add('single-image');
       } else {
         modalImageContainer.classList.remove('single-image');
+      }
+      // Use contain fit for logo-style project images to avoid cropping in modal
+      if (title === 'SHOPR') {
+        modalImageContainer.classList.add('logo-modal-fit');
+      } else {
+        modalImageContainer.classList.remove('logo-modal-fit');
       }
       
       // Show modal
